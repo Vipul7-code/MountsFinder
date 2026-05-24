@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Camping Campsites",
+export const metadata = createPageMetadata({
+  title: "Camping Campsites Near Trek Routes",
   description:
-    "Find nature campsites near forests, ridges, and lakes for your next trekking and camping trip.",
+    "Find nature campsites near forests, ridges, and lakes for your next trekking and camping trip in Uttarakhand and the Himalayas.",
+  path: "/campsites",
   keywords: [
     "camping campsites",
     "uttarakhand camping",
     "forest campsite",
     "mountain camping trip",
+    "riverside camp uttarakhand",
   ],
-  alternates: { canonical: "/campsites" },
-};
+});
 
 const campsites = [
   {
@@ -35,10 +36,10 @@ export default function CampsitesPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-lime-950 via-emerald-950 to-emerald-900">
       <section className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-10 lg:px-16">
-        <h1 className="text-4xl font-bold">Campsites</h1>
+        <h1 className="text-4xl font-bold">Campsites for Trekking & Camping</h1>
         <p className="mt-3 max-w-3xl text-lime-100/90">
           Discover natural camping spots with terrain, amenities, and suitability details before
-          you head out.
+          you head out on your Uttarakhand trek or mountain pass route.
         </p>
 
         <div className="mt-8 space-y-4">

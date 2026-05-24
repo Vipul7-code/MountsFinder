@@ -1,27 +1,36 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/breadcrumbs";
+import { createPageMetadata } from "@/lib/seo";
 import { uttarakhandTreks } from "@/lib/treks";
 
-export const metadata: Metadata = {
-  title: "Uttarakhand Trek Guide",
+export const metadata = createPageMetadata({
+  title: "Uttarakhand Trek Guide — Best Routes & Seasons",
   description:
-    "Find the best Uttarakhand trek options including winter treks, valley routes, and summit trails.",
+    "Find the best Uttarakhand trek options including Kedarkantha, Har Ki Dun, and Valley of Flowers. Compare difficulty, duration, and best travel months.",
+  path: "/treks/uttarakhand",
   keywords: [
     "uttarakhand trek",
     "best trek in uttarakhand",
     "uttarakhand trekking packages",
     "himalayan trek uttarakhand",
   ],
-  alternates: { canonical: "/treks/uttarakhand" },
-};
+});
 
 export default function UttarakhandTreksPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-lime-950 via-emerald-950 to-emerald-900">
       <section className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-10 lg:px-16">
+        <Breadcrumbs
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Treks", path: "/treks" },
+            { name: "Uttarakhand", path: "/treks/uttarakhand" },
+          ]}
+        />
         <h1 className="text-4xl font-bold">Uttarakhand Treks</h1>
         <p className="mt-3 max-w-3xl text-lime-100/90">
-          Compare routes, trek difficulty, and best travel months for popular Uttarakhand trails.
+          Compare routes, trek difficulty, and best travel months for popular Uttarakhand trails in
+          the Himalayas. Each trek page includes FAQs, highlights, and booking options.
         </p>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

@@ -1,19 +1,19 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Trek Trips in India",
   description:
-    "Browse trekking trips with difficulty levels, route styles, and seasonal recommendations.",
+    "Browse trekking trips with difficulty levels, route styles, and seasonal recommendations for Uttarakhand and Himalayan adventures.",
+  path: "/treks",
   keywords: ["trek trip", "hiking trips india", "mountain trek packages"],
-  alternates: { canonical: "/treks" },
-};
+});
 
 export default function TreksPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-emerald-900 via-emerald-950 to-lime-950">
       <section className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-10 lg:px-16">
-        <h1 className="text-4xl font-bold">Trekking Trips</h1>
+        <h1 className="text-4xl font-bold">Trekking Trips in India</h1>
         <p className="mt-3 max-w-3xl text-lime-100/90">
           Explore curated trekking trips focused on Uttarakhand trails, mountain-pass routes, and
           forest ridge adventures.

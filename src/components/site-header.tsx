@@ -10,6 +10,7 @@ const navItems = [
   { href: "/treks/uttarakhand", label: "Uttarakhand" },
   { href: "/mountain-passes", label: "Mountain Passes" },
   { href: "/campsites", label: "Campsites" },
+  { href: "/guides", label: "Guides" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Book / Contact" },
 ];

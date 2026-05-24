@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import JsonLd from "@/components/json-ld";
+import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
+import { organizationJsonLd, siteConfig, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,40 +16,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mountsfinder.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Mountsfinder | Trekking & Camping in Uttarakhand",
-    template: "%s | Mountsfinder",
+    default: `Trekking & Camping in Uttarakhand | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Plan trekking and camping adventures across Uttarakhand, mountain passes, and forest trails with Mountsfinder.",
-  keywords: [
-    "uttarakhand trek",
-    "uttarakhand camping",
-    "mountain pass trek",
-    "himalayan trek",
-    "trekking in india",
-    "camping trips",
-  ],
-  alternates: {
-    canonical: "/",
-  },
+  description: siteConfig.description,
+  keywords: [...siteConfig.defaultKeywords],
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Mountsfinder | Trekking & Camping in Uttarakhand",
-    description:
-      "Explore curated treks, campsites, and mountain pass adventures built for nature lovers.",
+    title: `Trekking & Camping in Uttarakhand | ${siteConfig.name}`,
+    description: siteConfig.description,
     url: "/",
-    siteName: "Mountsfinder",
-    locale: "en_IN",
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mountsfinder",
-    description: "Trekking, camping, and mountain pass adventures in Uttarakhand and beyond.",
+    title: siteConfig.name,
+    description: siteConfig.description,
   },
 };
 
@@ -57,17 +48,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-emerald-950 text-lime-50">
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <SiteHeader />
         {children}
-        <footer className="border-t border-lime-200/20 bg-emerald-950/90">
-          <div className="mx-auto w-full max-w-6xl px-6 py-5 text-xs text-lime-100/80 sm:px-10 lg:px-16">
-            Explore responsibly. Leave no trace.
-          </div>
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );

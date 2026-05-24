@@ -1,20 +1,21 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Book Trek and Camping Trip",
+export const metadata = createPageMetadata({
+  title: "Book Uttarakhand Trek & Camping Trip",
   description:
-    "Book trekking and camping trips with custom dates, group plans, and route preferences.",
+    "Book trekking and camping trips with custom dates, group size, and route preferences. Mountsfinder helps plan Uttarakhand and Himalayan adventures.",
+  path: "/contact",
   keywords: ["book trek", "trek inquiry form", "camping booking", "uttarakhand trip booking"],
-  alternates: { canonical: "/contact" },
-};
+});
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-emerald-950 via-emerald-900 to-lime-900">
       <section className="mx-auto w-full max-w-4xl px-6 py-14 sm:px-10">
-        <h1 className="text-4xl font-bold">Book Your Adventure</h1>
+        <h1 className="text-4xl font-bold">Book Your Trek or Camping Trip</h1>
         <p className="mt-3 text-lime-100/90">
-          Share your preferred dates and trek style. We will help plan your route and campsite.
+          Share your preferred dates and trek style. We will help plan your Uttarakhand route,
+          mountain pass itinerary, or campsite stay.
         </p>
 
         <form className="mt-8 space-y-5 rounded-2xl border border-lime-200/20 bg-emerald-800/35 p-6 sm:p-8">
@@ -72,7 +73,8 @@ export default function ContactPage() {
             >
               <option value="weekend-camp">Weekend camping</option>
               <option value="ridge-trek">Mountain ridge trek</option>
-              <option value="family-nature">Family nature retreat</option>
+              <option value="uttarakhand-trek">Uttarakhand trek</option>
+              <option value="mountain-pass">Mountain pass route</option>
               <option value="custom">Custom itinerary</option>
             </select>
           </label>

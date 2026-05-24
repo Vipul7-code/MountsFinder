@@ -1,18 +1,20 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import { mountainPasses } from "@/lib/treks";
 
-export const metadata: Metadata = {
-  title: "Mountain Pass Trek Routes",
+export const metadata = createPageMetadata({
+  title: "Mountain Pass Trek Routes in the Himalayas",
   description:
-    "Explore mountain pass trek routes with difficulty, location, and itinerary highlights.",
+    "Explore mountain pass trek routes including Kuari Pass and Hampta Pass with location highlights, crossover trails, and planning tips.",
+  path: "/mountain-passes",
   keywords: [
     "mountain pass trek",
     "mount pass trekking",
     "high altitude pass trek",
     "himalayan pass routes",
+    "kuari pass trek",
+    "hampta pass trek",
   ],
-  alternates: { canonical: "/mountain-passes" },
-};
+});
 
 export default function MountainPassesPage() {
   return (
@@ -20,7 +22,8 @@ export default function MountainPassesPage() {
       <section className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-10 lg:px-16">
         <h1 className="text-4xl font-bold">Mountain Pass Treks</h1>
         <p className="mt-3 max-w-3xl text-lime-100/90">
-          Handpicked mountain pass routes for trekkers who want high views and crossover trails.
+          Handpicked mountain pass routes for trekkers who want high views and crossover trails
+          across Uttarakhand and the wider Himalayas.
         </p>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {mountainPasses.map((item) => (
